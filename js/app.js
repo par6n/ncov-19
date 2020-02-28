@@ -129,6 +129,9 @@ This file is licensed under GPLv2.0 or later
       document.getElementById(
         'newRecoveries',
       ).innerHTML = data.new_cases.toPersian();
+      document.getElementById('treatmentAge').innerHTML =
+        data.treatmentAge || 'N/A';
+      document.getElementById('deathAge').innerHTML = data.deathAge || 'N/A';
 
       var subunits = topojson.feature(iran, iran.objects.subunits);
       svg
