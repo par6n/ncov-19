@@ -47,7 +47,6 @@ p {
   font-weight: 900;
   font-size: 1.5em;
 }
-/** MAP **/
 .subunit {
   fill: #2ec4b6;
   stroke: #011627;
@@ -78,11 +77,6 @@ p {
   text-anchor: middle;
   cursor: default;
   pointer-events: none;
-}
-
-a,
-a:hover {
-  color: #fff;
 }
 
 .legend span {

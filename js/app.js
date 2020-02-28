@@ -1,5 +1,5 @@
 /*
-This file is licensed under GPLv2.0 or later
+This file is distributed under MIT license.
 */
 (function() {
   Number.prototype.toPersian = function() {
