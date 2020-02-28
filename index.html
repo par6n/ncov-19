@@ -123,7 +123,13 @@
         </div>
         <footer>
           <p class="m-4 text-center">
-            ایده از
+            <a
+              href="#what-is-this"
+              data-toggle="modal"
+              data-target="#aboutModal"
+              >این صفحه چیست؟</a
+            >
+            / ایده از
             <a target="_blank" href="https://twitter.com/radeh_ir">radeh_ir@</a>
             و پیاده‌سازی از
             <a target="_blank" href="https://twitter.com/ehsaansays"
@@ -141,6 +147,50 @@
         </footer>
       </div>
     </div>
+    <div
+      class="modal fade"
+      id="aboutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="aboutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">درباره‌ی این صفحه</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              شکل‌گیری «رده» بر مبنای یک ایده مسئولیت اجتماعی بود؛ این‌که مراجعه
+              به شعبه بانک را برای مردمی که نیاز به خدمات بانکی و مالی دارند،
+              کاهش بدهد. در ادامه اما این ایده به تجاری‌سازی رسید اما در این
+              مسیر هرگز مسئولیت اجتماعی‌مان را فراموش نکردیم. در این روزهای سخت
+              کرونایی هم در تلاشیم تا کنار دیگر هموطنان‌مان برای شکست این ویروس
+              خطرناک کاری بکنیم. صفحه پویا و دینامیک اطلاع از آخرین وضعیت ابتلا
+              و شیوع ویروس کرونا در کشور، با همکاری دواطلبانه
+              <a href="https://twitter.com/ehsaansays" target="_blank">احسان</a>
+              و دیگران در همین راستا پیاده‌سازی شده است.
+            </p>
+            <p>
+              این صفحه بر اساس اطلاعات اعلامی از سوی وزارت بهداشت به‌‍روز
+              می‌شود.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              باشه
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="//d3js.org/topojson.v1.min.js"></script>
     <script src="js/app.js"></script>

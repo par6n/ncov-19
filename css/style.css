@@ -130,3 +130,7 @@ p {
 #pNewFatalities {
   color: rgb(134, 134, 134);
 }
+
+.modal {
+  color: #333;
+}
