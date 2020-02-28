@@ -1,24 +1,24 @@
 @font-face {
-  font-family: "Vazir";
+  font-family: 'Vazir';
   font-weight: normal;
-  src: url("../fonts/Vazir.woff2") format("woff2");
+  src: url('../fonts/Vazir.woff2') format('woff2');
 }
 @font-face {
-  font-family: "Vazir";
+  font-family: 'Vazir';
   font-weight: bold;
-  src: url("../fonts/Vazir-Bold.woff2") format("woff2");
+  src: url('../fonts/Vazir-Bold.woff2') format('woff2');
 }
 @font-face {
-  font-family: "Vazir";
+  font-family: 'Vazir';
   font-weight: 900;
-  src: url("../fonts/Vazir-Black.woff2") format("woff2");
+  src: url('../fonts/Vazir-Black.woff2') format('woff2');
 }
 html,
 body {
   background-color: #011627;
   color: #fdfffc;
   direction: rtl;
-  font-family: "Vazir", sans-serif;
+  font-family: 'Vazir', sans-serif;
   text-align: right;
 }
 .container.main {
@@ -35,6 +35,12 @@ h2 {
 h3 {
   font-weight: 700;
   font-size: 1.1em;
+}
+p {
+  font-size: 1em;
+}
+.subtitle {
+  color: #0087cb;
 }
 .stats .row span {
   display: block;
@@ -97,4 +103,36 @@ a:hover {
 }
 .legend .high {
   background-color: #e71d36;
+}
+.stats {
+  padding: 10px;
+  background-color: #001f38;
+  border: 1px solid #003865;
+}
+.stats > .row {
+  border-bottom: 1px solid #003865;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-bottom: 10px;
+}
+.stats > .row:last-child {
+  border-bottom: none;
+}
+#totalCases,
+#newCases,
+#pTotalCases,
+#pNewCases {
+  color: rgb(230, 0, 0);
+}
+#totalRecoveries,
+#newRecoveries,
+#pTotalRecoveries,
+#pNewRecoveries {
+  color: rgb(112, 168, 0);
+}
+#totalFatalities,
+#newFatalities,
+#pTotalFatalities,
+#pNewFatalities {
+  color: rgb(134, 134, 134);
 }

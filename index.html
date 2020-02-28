@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <style></style>
+    <link rel="stylesheet" href="css/style.css?v1.0.6" />
+
+    <meta name="theme-color" content="#011627" />
   </head>
   <body>
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container main text-center">
+            <header>
+              <h1>نقشه‌ی مبتلایان به ویروس COVID-19 در ایران</h1>
+              <h2>بر اساس آمار <span id="source"></span></h2>
+              <p class="subtitle">
+                آخرین به‌روزرسانی: <span id="lastUpdated"></span>
+              </p>
+            </header>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-5">
           <div id="mapContainer"></div>
@@ -23,38 +37,34 @@
         </div>
         <div class="col-md-7">
           <div class="container main text-center">
-            <header>
-              <h1>نقشه‌ی مبتلایان به ویروس COVID-19 در ایران</h1>
-              <h2>بر اساس آمار <span id="source"></span></h2>
-              <h3>آخرین به‌روزرسانی: <span id="lastUpdated"></span></h3>
-            </header>
-
             <div class="stats country pt-4">
               <h2 class="stats-title">در کشور ایران:</h2>
               <div class="row">
-                <div class="col">
+                <div class="col-6">
                   <span id="totalCases">صفر</span>
                   کل مبتلایان
                 </div>
-                <div class="col">
+                <div class="col-6">
                   <span id="newCases">صفر</span>
                   مبتلایان جدید
                 </div>
-                <div class="col">
+              </div>
+              <div class="row">
+                <div class="col-6">
                   <span id="totalRecoveries">صفر</span>
                   کل بهبودی‌ها
                 </div>
-              </div>
-              <div class="row">
-                <div class="col">
+                <div class="col-6">
                   <span id="newRecoveries">صفر</span>
                   بهبودی‌های جدید
                 </div>
-                <div class="col">
+              </div>
+              <div class="row">
+                <div class="col-6">
                   <span id="totalFatalities">صفر</span>
                   کل فوتی‌ها
                 </div>
-                <div class="col">
+                <div class="col-6">
                   <span id="newFatalities">صفر</span>
                   فوتی‌های جدید
                 </div>
@@ -70,9 +80,8 @@
                 </div>
               </div>
             </div>
-
             <div
-              class="stats province pt-4"
+              class="stats province pt-4 mt-3"
               id="provinceSection"
               style="display: none;"
             >
@@ -80,29 +89,31 @@
                 در استان <span id="provinceName"></span>:
               </h2>
               <div class="row">
-                <div class="col">
+                <div class="col-6">
                   <span id="pTotalCases">صفر</span>
                   کل مبتلایان
                 </div>
-                <div class="col">
+                <div class="col-6">
                   <span id="pNewCases">صفر</span>
                   مبتلایان جدید
                 </div>
-                <div class="col">
+              </div>
+              <div class="row">
+                <div class="col-6">
                   <span id="pTotalRecoveries">صفر</span>
                   کل بهبودی‌ها
                 </div>
-              </div>
-              <div class="row">
-                <div class="col">
+                <div class="col-6">
                   <span id="pNewRecoveries">صفر</span>
                   بهبودی‌های جدید
                 </div>
-                <div class="col">
+              </div>
+              <div class="row">
+                <div class="col-6">
                   <span id="pTotalFatalities">صفر</span>
                   کل فوتی‌ها
                 </div>
-                <div class="col">
+                <div class="col-6">
                   <span id="pNewFatalities">صفر</span>
                   فوتی‌های جدید
                 </div>
@@ -110,21 +121,25 @@
             </div>
           </div>
         </div>
+        <footer>
+          <p class="m-4 text-center">
+            ایده از
+            <a target="_blank" href="https://twitter.com/radeh_ir">radeh_ir@</a>
+            و پیاده‌سازی از
+            <a target="_blank" href="https://twitter.com/ehsaansays"
+              >ehsaansays@</a
+            >
+            و
+            <a target="_blank" href="https://github.com/par6n/ncov-19#README"
+              >دیگران</a
+            >
+            /
+            <a target="_blank" href="https://github.com/par6n/ncov-19"
+              >بهترش کنید!</a
+            >
+          </p>
+        </footer>
       </div>
-      <footer>
-        <p class="mt-3 text-center">
-          ایده از
-          <a target="_blank" href="https://twitter.com/radeh_ir">radeh_ir@</a> و
-          پیاده‌سازی از
-          <a target="_blank" href="https://twitter.com/ehsaansays"
-            >ehsaansays@</a
-          >
-          /
-          <a target="_blank" href="https://github.com/par6n/ncov-19"
-            >بهترش کنید!</a
-          >
-        </p>
-      </footer>
     </div>
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="//d3js.org/topojson.v1.min.js"></script>
