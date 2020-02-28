@@ -128,7 +128,7 @@ This file is licensed under GPLv2.0 or later
       ).innerHTML = data.total_recoveries.toPersian();
       document.getElementById(
         'newRecoveries',
-      ).innerHTML = data.new_cases.toPersian();
+      ).innerHTML = data.new_recoveries.toPersian();
       document.getElementById('treatmentAge').innerHTML =
         data.treatmentAge || 'N/A';
       document.getElementById('deathAge').innerHTML = data.deathAge || 'N/A';
