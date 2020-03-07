@@ -143,14 +143,17 @@ This file is distributed under MIT license.
           let className = '';
           if (data.provinces[i]) {
             const totalCases = data.provinces[i].total_cases;
-            if (totalCases > 00) {
+            if (totalCases > 1) {
               className = 'low';
             }
-            if (totalCases > 10) {
+            if (totalCases > 100) {
               className = 'medium';
             }
-            if (totalCases > 50) {
+            if (totalCases > 500) {
               className = 'high';
+            }
+            if (totalCases > 1000) {
+              className = 'critical';
             }
           }
           return `subunit ${className ? `status-${className}` : ''}`;
