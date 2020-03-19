@@ -75,7 +75,7 @@ This file is distributed under MIT license.
     ).innerHTML = data.total_recoveries.toPersian();
     document.getElementById(
       'pNewRecoveries',
-    ).innerHTML = data.new_cases.toPersian();
+    ).innerHTML = data.new_recoveries.toPersian();
   };
 
   var svg = d3
