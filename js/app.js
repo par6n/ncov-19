@@ -155,6 +155,9 @@ This file is distributed under MIT license.
             if (totalCases > 1000) {
               className = 'critical';
             }
+            if (totalCases > 2000) {
+              className = 'crisis';
+            }
           }
           return `subunit ${className ? `status-${className}` : ''}`;
         })
@@ -171,7 +174,7 @@ This file is distributed under MIT license.
         .attr('transform', d => `translate(${path.centroid(d)})`)
         .attr(
           'style',
-          d => `font-size: ${Math.min(20, path.area(d) * 0.015)}px`,
+          d => `font-size: ${Math.min(17, path.area(d) * 0.015)}px`,
         )
         .attr('dy', (d, i) => (i === 14 ? '-.45em' : '.35em'))
         .attr('dx', '-.25em')

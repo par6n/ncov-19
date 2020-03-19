@@ -75,6 +75,12 @@ p {
 .status-critical:hover {
   fill: #470000;
 }
+.status-crisis {
+  fill: #220000;
+}
+.status-crisis:hover {
+  fill: #000;
+}
 .subunit-label {
   fill: #fdfffc;
   fill-opacity: 0.8;
@@ -106,6 +112,9 @@ p {
 }
 .legend .critical {
   background-color: #470000;
+}
+.legend .crisis {
+  background-color: #220000;
 }
 .stats {
   padding: 10px;
