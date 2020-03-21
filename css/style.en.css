@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+html,
+body {
+  background-color: #011627;
+  color: #fdfffc;
+  direction: ltr;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: left;
+}
+.container.main {
+  padding-top: 2em;
+}
+h1 {
+  font-weight: 700;
+  font-size: 1.8em;
+}
+h2 {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+h3 {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+p {
+  font-size: 1em;
+}
+.subtitle {
+  color: #0087cb;
+}
+.stats .row span {
+  display: block;
+  font-weight: 900;
+  font-size: 1.5em;
+}
+.subunit {
+  fill: #2ec4b6;
+  stroke: #011627;
+}
+.status-low {
+  fill: #ff9f1c;
+}
+.status-low:hover {
+  fill: #8d5100;
+}
+.status-medium {
+  fill: #f35e29;
+}
+.status-medium:hover {
+  fill: #862807;
+}
+.status-high {
+  fill: #e71d36;
+}
+.status-high:hover {
+  fill: #750c19;
+}
+.status-critical {
+  fill: #a80013;
+}
+.status-critical:hover {
+  fill: #470000;
+}
+.status-crisis {
+  fill: #220000;
+}
+.status-crisis:hover {
+  fill: #000;
+}
+.subunit-label {
+  fill: #fdfffc;
+  fill-opacity: 0.8;
+  /* font-size: 20px; */
+  font-weight: 700;
+  text-anchor: middle;
+  cursor: default;
+  pointer-events: none;
+}
+
+.legend span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.4em;
+  /* margin-left: 0.1em; */
+}
+.legend .none {
+  background-color: #2ec4b6;
+}
+.legend .low {
+  background-color: #ff9f1c;
+}
+.legend .medium {
+  background-color: #f35e29;
+}
+.legend .high {
+  background-color: #e71d36;
+}
+.legend .critical {
+  background-color: #470000;
+}
+.legend .crisis {
+  background-color: #220000;
+}
+.stats {
+  padding: 10px;
+  background-color: #001f38;
+  border: 1px solid #003865;
+}
+.stats > .row {
+  border-bottom: 1px solid #003865;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-bottom: 10px;
+}
+.stats > .row:last-child {
+  border-bottom: none;
+}
+#totalCases,
+#newCases,
+#pTotalCases,
+#pNewCases {
+  color: rgb(230, 0, 0);
+}
+#totalRecoveries,
+#newRecoveries,
+#pTotalRecoveries,
+#pNewRecoveries {
+  color: rgb(112, 168, 0);
+}
+#totalFatalities,
+#newFatalities,
+#pTotalFatalities,
+#pNewFatalities {
+  color: rgb(134, 134, 134);
+}
+
+.modal {
+  color: #333;
+}

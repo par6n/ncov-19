@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COVID-19 spread in Iran</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.en.css?v1.0.6" />
+
+    <meta name="theme-color" content="#011627" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container main text-center">
+            <header>
+              <h1>COVID-19 patients spread map in Iran</h1>
+              <h2>Based on <span id="source"></span></h2>
+              <p class="subtitle">
+                Last updated: <span id="lastUpdated"></span>
+              </p>
+            </header>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div id="mapContainer"></div>
+          <p class="legend text-center">
+            <span class="low"></span> Less than 100 cases
+            <span class="medium"></span> 101~500 cases
+            <span class="high"></span> 501~1,000 cases
+            <span class="critical"></span> 1,001~2,000 cases
+            <span class="crisis"></span> More than 2,000 cases
+          </p>
+        </div>
+        <div class="col-md-7">
+          <div class="container main text-center">
+            <div class="stats country pt-4">
+              <h2 class="stats-title">In Iran:</h2>
+              <div class="row">
+                <div class="col-6">
+                  <span id="totalCases">N/A</span>
+                  Total cases
+                </div>
+                <div class="col-6">
+                  <span id="newCases">N/A</span>
+                  New cases
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span id="totalRecoveries">N/A</span>
+                  Total recoveries
+                </div>
+                <div class="col-6">
+                  <span id="newRecoveries">N/A</span>
+                  New recoveries
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span id="totalFatalities">N/A</span>
+                  Total fatalities
+                </div>
+                <div class="col-6">
+                  <span id="newFatalities">N/A</span>
+                  New fatalities
+                </div>
+              </div>
+            </div>
+            <div style="display: none;">
+              <!-- They are hidden because they're outdated -->
+              <!-- and we've kept them for the sake of backward -->
+              <!-- compatibility. -->
+              <span id="treatmentAge"></span> <span id="deathAge"></span>
+            </div>
+            <div
+              class="stats province pt-4 mt-3"
+              id="provinceSection"
+              style="display: none;"
+            >
+              <h2 class="stats-title">
+                In province "<span id="provinceName"></span>":
+              </h2>
+              <div class="row">
+                <div class="col-6">
+                  <span id="pTotalCases">N/A</span>
+                  Total cases
+                </div>
+                <div class="col-6">
+                  <span id="pNewCases">N/A</span>
+                  New cases
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span id="pTotalRecoveries">N/A</span>
+                  Total recoveries
+                </div>
+                <div class="col-6">
+                  <span id="pNewRecoveries">N/A</span>
+                  New recoveries
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span id="pTotalFatalities">N/A</span>
+                  Total fatalities
+                </div>
+                <div class="col-6">
+                  <span id="pNewFatalities">N/A</span>
+                  New fatalities
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <p class="m-4 text-center">
+            <a
+              href="#what-is-this"
+              data-toggle="modal"
+              data-target="#aboutModal"
+              >What's this?</a
+            >
+            / Idea from
+            <a target="_blank" href="https://twitter.com/radeh_ir">@radeh_ir</a>
+            and created by
+            <a target="_blank" href="https://twitter.com/ehsaansays"
+              >@ehsaansays</a
+            >
+            and
+            <a target="_blank" href="https://github.com/par6n/ncov-19#README"
+              >contributors</a
+            >
+            /
+            <a target="_blank" href="https://github.com/par6n/ncov-19"
+              >Improve it!</a
+            >
+            /
+            <a href="index.html">نسخه‌ی فارسی</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="aboutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="aboutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="aboutModalLabel">What's this?</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              This is an interactive map which displays the spread of COVID-19
+              patients all over the Iran. The data comes from the official
+              source: "Iran Ministry of Health." The idea came from "Rade"
+              start-up in response to their social responsibility and it was
+              brought to life by
+              <a href="https://twitter.com/ehsaansays" target="_blank">ehsaan</a
+              >.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.isEnglish = true;
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-159348105-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-159348105-1');
+    </script>
+  </body>
+</html>

@@ -4,48 +4,86 @@ This file is distributed under MIT license.
 (function() {
   Number.prototype.toPersian = function() {
     if (!this.valueOf()) {
-      return 'صفر';
+      return window.isEnglish ? 'None' : 'صفر';
     } else {
       if (this.valueOf() < 0) {
         return 'N/A';
       } else {
-        return this.toLocaleString('fa-IR');
+        return this.toLocaleString(window.isEnglish ? 'en-GB' : 'fa-IR');
       }
     }
   };
-  let provinces = {
-    20: 'اصفهان',
-    24: 'کرمان',
-    27: 'یزد',
-    23: 'فارس',
-    14: 'هرمزگان',
-    13: 'بوشهر',
-    12: 'سیستان و بلوچستان',
-    11: 'خراسان جنوبی',
-    10: 'خراسان رضوی',
-    8: 'خراسان شمالی',
-    9: 'گلستان',
-    15: 'مازندران',
-    3: 'گیلان',
-    2: 'اردبیل',
-    1: 'آذربایجان شرقی',
-    0: 'آذربایجان غربی',
-    16: 'سمنان',
-    29: 'تهران',
-    28: 'قم',
-    30: 'البرز',
-    18: 'قزوین',
-    17: 'زنجان',
-    4: 'کردستان',
-    5: 'کرمانشاه',
-    7: 'خوزستان',
-    6: 'ایلام',
-    26: 'لرستان',
-    25: 'همدان',
-    19: 'مرکزی',
-    22: 'کهکیلویه و بویراحمد',
-    21: 'چهارمحال و بختیاری',
-  };
+
+  let provinces;
+  if (window.isEnglish) {
+    provinces = {
+      20: 'Isfahan',
+      24: 'Kerman',
+      27: 'Yazd',
+      23: 'Fars',
+      14: 'Hormozgan',
+      13: 'Bushehr',
+      12: 'Sistan-va-Balouchestan',
+      11: 'South Khourasan',
+      10: 'Khourasan-e-Razavi',
+      8: 'North Khourasan',
+      9: 'Golestan',
+      15: 'Mazandaran',
+      3: 'Gilan',
+      2: 'Ardebil',
+      1: 'East Azarbayejan',
+      0: 'West Azarbayejan',
+      16: 'Semnan',
+      29: 'Tehran',
+      28: 'Qom',
+      30: 'Alborz',
+      18: 'Qazvin',
+      17: 'Zanjan',
+      4: 'Kurdestan',
+      5: 'Kermanshah',
+      7: 'Khozestan',
+      6: 'Ilam',
+      26: 'Lorestan',
+      25: 'Hamedan',
+      19: 'Markazi',
+      22: 'Kohkiloye-va-Boyerahmad',
+      21: 'Chaharmahaal-va-Bakhtiyari',
+    };
+  } else {
+    provinces = {
+      20: 'اصفهان',
+      24: 'کرمان',
+      27: 'یزد',
+      23: 'فارس',
+      14: 'هرمزگان',
+      13: 'بوشهر',
+      12: 'سیستان و بلوچستان',
+      11: 'خراسان جنوبی',
+      10: 'خراسان رضوی',
+      8: 'خراسان شمالی',
+      9: 'گلستان',
+      15: 'مازندران',
+      3: 'گیلان',
+      2: 'اردبیل',
+      1: 'آذربایجان شرقی',
+      0: 'آذربایجان غربی',
+      16: 'سمنان',
+      29: 'تهران',
+      28: 'قم',
+      30: 'البرز',
+      18: 'قزوین',
+      17: 'زنجان',
+      4: 'کردستان',
+      5: 'کرمانشاه',
+      7: 'خوزستان',
+      6: 'ایلام',
+      26: 'لرستان',
+      25: 'همدان',
+      19: 'مرکزی',
+      22: 'کهکیلویه و بویراحمد',
+      21: 'چهارمحال و بختیاری',
+    };
+  }
 
   window.currentProvince = null;
   window.virusData = null;
@@ -109,8 +147,12 @@ This file is distributed under MIT license.
       }
       virusData = data;
 
-      document.getElementById('source').innerHTML = data.source;
-      document.getElementById('lastUpdated').innerHTML = data.lastUpdated;
+      document.getElementById('source').innerHTML = window.isEnglish
+        ? data.sourceEn || data.source
+        : data.source;
+      document.getElementById('lastUpdated').innerHTML = window.isEnglish
+        ? data.lastUpdatedEn || data.lastUpdated
+        : data.lastUpdated;
       document.getElementById(
         'totalCases',
       ).innerHTML = data.total_cases.toPersian();
@@ -183,7 +225,9 @@ This file is distributed under MIT license.
         .text((d, i) => {
           const totalCases = data.provinces[i].total_cases;
           if (totalCases) {
-            return totalCases.toLocaleString('fa-IR');
+            return totalCases.toLocaleString(
+              window.isEnglish ? 'en-GB' : 'fa-IR',
+            );
           } else {
             return '';
           }
